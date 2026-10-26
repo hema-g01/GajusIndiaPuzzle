@@ -1,0 +1,39 @@
+/* Points, stars, badges, reward cards. Files load in numeric order: later rules override earlier ones. */
+/* ---- v5: points, stars, badges ---- */
+.pill.pts{background:#fff3c4; box-shadow:0 4px 0 #f0d98a; font-variant-numeric:tabular-nums}
+.pill.pts.bump{animation:bump .6s}
+@keyframes bump{30%{transform:scale(1.3)} 60%{transform:scale(.95)}}
+#fxLayer{position:fixed; inset:0; z-index:70; display:grid; place-items:center; pointer-events:none}
+.fx-card{background:var(--card); border-radius:30px; padding:18px 34px 22px; display:grid; justify-items:center; gap:2px; box-shadow:0 0 0 8px rgba(255,255,255,.5),0 20px 50px rgba(42,36,99,.35); animation:fxIn .45s cubic-bezier(.2,1.6,.4,1) both; text-align:center}
+.fx-card .big{font-size:clamp(4.5rem,11vw,8rem); line-height:1}
+.fx-star .big{animation:starSpin 1.2s ease-out both; filter:drop-shadow(0 0 18px #ffd34d) drop-shadow(0 0 40px #ffb627)}
+.fx-card b{font-family:var(--f-display); font-size:clamp(1.6rem,3.4vw,2.6rem); color:var(--ink); line-height:1.05}
+.fx-card small{font-family:var(--f-display); font-weight:700; color:var(--ink-soft); font-size:1.05em}
+.fx-badge{border:6px solid var(--marigold)}
+.fx-badge small{color:var(--hibiscus); font-size:1.2em; order:-1}
+.fx-badge i{font-style:normal; color:var(--ink-soft)}
+@keyframes fxIn{from{transform:scale(.3); opacity:0} to{transform:scale(1); opacity:1}}
+@keyframes starSpin{0%{transform:scale(.2) rotate(-180deg)} 60%{transform:scale(1.25) rotate(15deg)} 100%{transform:scale(1) rotate(0)}}
+.pts-big{font-family:var(--f-display); font-weight:700; font-size:1.4em; color:var(--ink-soft)}
+.pts-big b{font-size:2.2em; color:var(--hibiscus); line-height:1}
+.stars .many{font-family:var(--f-display); font-size:.6em; align-self:center; color:var(--ink)}
+.first-star{font-size:.3em; margin:0; color:var(--ink-soft)}
+.badge-row{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+.bdg{background:#fff3c4; border:3px solid var(--marigold); border-radius:20px; padding:8px 16px; display:grid; justify-items:center; gap:0; min-width:150px}
+.bdg span{font-size:2.6em; line-height:1}
+.bdg b{font-family:var(--f-display); font-size:1.15em}
+.bdg small{color:var(--ink-soft); font-size:.8em}
+.badge-board{margin-top:22px; background:var(--card); border-radius:var(--r-l); padding:16px; box-shadow:0 5px 0 #e4ddc8}
+.badge-board h3{font-size:1.6em; margin-bottom:8px}
+.badge-board th.bh{text-align:center; font-size:.8em; line-height:1.15; vertical-align:bottom}
+.badge-board th.bh span{display:block; font-size:2em}
+.badge-board th.bh small{display:block; font-weight:400; font-family:var(--f-body)}
+.badge-board td.bc{text-align:center; font-family:var(--f-display); font-weight:800; font-size:1.15em}
+.badge-board td.locked{opacity:.35}
+.rank-row .nm b{white-space:normal}
+.qmap{height:clamp(80px,12vh,140px)}
+.badge-board td:first-child{white-space:nowrap}
+@media (min-width:900px){ .welcome h1{font-size:clamp(2.2rem,4.2vw,3.8rem)} .gaju-big{width:clamp(110px,12vw,160px)} }
+.mute-fab{position:fixed; right:calc(14px + env(safe-area-inset-right,0px)); bottom:calc(14px + env(safe-area-inset-bottom,0px)); z-index:65; width:58px; height:58px; border-radius:50%; background:var(--card); box-shadow:0 5px 0 #c7c3e8,0 8px 16px var(--shade); font-size:1.6rem; display:grid; place-items:center}
+.mute-fab:active{transform:translateY(3px); box-shadow:0 2px 0 #c7c3e8}
+.scard{cursor:default}

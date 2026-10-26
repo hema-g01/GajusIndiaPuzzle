@@ -1,0 +1,81 @@
+/* Rivers/mountains/places, section grid, study board. Files load in numeric order: later rules override earlier ones. */
+/* ---- v3: sections, features, study board ---- */
+.center-wrap > .panel.wide{width:min(1180px,100%)}
+.home h1{font-size:clamp(2.4rem,4.6vw,4.4rem)}
+.sections{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:22px}
+.sec{background:var(--card); border-radius:var(--r-l); padding:16px 18px; box-shadow:0 6px 0 #e4ddc8; display:flex; flex-direction:column; gap:8px; border-top:10px solid var(--c)}
+.sec .ic{font-size:2.6em; line-height:1}
+.sec h3{font-size:1.45em}
+.sec p{margin:0; color:var(--ink-soft); font-size:.92em}
+.sec .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:auto; padding-top:6px}
+.home-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; justify-content:center}
+@media (max-width:900px){ .sections{grid-template-columns:1fr} }
+
+.tabs{display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 16px}
+.tab{font-family:var(--f-display); font-weight:700; padding:.3em 1em .2em; border-radius:999px; background:var(--card); box-shadow:0 4px 0 #e4ddc8; min-height:46px}
+.tab[aria-selected="true"]{background:var(--plum); color:#fff; box-shadow:0 4px 0 #4b3fb8}
+.study-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr)); gap:12px}
+.scard{text-align:left; background:var(--card); border-radius:var(--r-m); padding:12px 14px; box-shadow:0 4px 0 #e4ddc8; display:grid; gap:6px; align-content:start; border-top:8px solid var(--c)}
+.scard .t{display:flex; gap:8px; align-items:center}
+.scard .t span{font-size:1.8em; line-height:1}
+.scard .t b{font-family:var(--f-display); font-size:1.15em; line-height:1.1}
+.scard .t small{display:block; color:var(--ink-soft); font-size:.78em}
+.scard dl{margin:0; display:grid; grid-template-columns:auto minmax(0,1fr); gap:3px 8px; font-size:.88em}
+.scard dt{color:var(--ink-soft); font-weight:700}
+.scard dd{margin:0}
+.scard p{margin:0; font-size:.88em; line-height:1.35}
+.study-note{color:var(--ink-soft); margin:0 0 10px}
+.mini-study{max-height:44vh; overflow:auto; border-radius:14px; background:var(--card); margin-top:10px}
+.mini-study table{min-width:560px; font-size:.85em}
+.mini-study th{position:sticky; top:0; background:var(--card)}
+
+.pieces.cards{grid-template-columns:1fr}
+.piece.fc{flex-direction:row; justify-content:flex-start; gap:10px; padding:10px 12px; text-align:left}
+.piece.fc .em{font-size:1.7em; line-height:1}
+.piece.fc span{text-align:left}
+.piece.fc small{display:block; color:var(--ink-soft); font-family:var(--f-body); font-weight:400; font-size:.78em}
+.floater.chip{background:var(--card); border-radius:var(--r-m); padding:8px 14px; display:flex; gap:8px; align-items:center; font-family:var(--f-display); font-weight:700; font-size:1.1em; border:3px solid var(--hibiscus)}
+.find-card{background:var(--card); border-radius:var(--r-m); box-shadow:0 5px 0 #e4ddc8; padding:16px; text-align:center; display:grid; gap:6px; justify-items:center}
+.find-card .lbl2{font-family:var(--f-display); font-weight:700; color:var(--ink-soft)}
+.find-card .em{font-size:3em; line-height:1}
+.find-card b{font-family:var(--f-display); font-size:1.6em; line-height:1.05}
+.find-card .tt{font-family:var(--f-display); font-weight:700; color:#fff; border-radius:999px; padding:0 .7em; font-size:.85em}
+@media (max-aspect-ratio:1/1){
+  .pieces.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .piece.fc{padding:6px 8px} .piece.fc .em{font-size:1.3em}
+  .find-card{padding:8px; grid-template-columns:auto 1fr auto; text-align:left; align-items:center}
+  .find-card .em{font-size:2em}
+}
+
+.ft .f-river{fill:none; stroke:#4a9be6; stroke-width:5; stroke-linecap:round; stroke-linejoin:round}
+.ft.found .f-river{stroke:#1468c9; stroke-width:6}
+.ft .f-range{fill:none; stroke:#b98a5a; stroke-width:9; stroke-linecap:round; stroke-linejoin:round; stroke-opacity:.5}
+.ft .f-tri{fill:#8a5a2b}
+.ft.found .f-range{stroke:#8a5a2b; stroke-opacity:.75}
+.ft .f-point{fill:#fff; stroke:#7c6cf2; stroke-width:3}
+.ft.found .f-point{fill:#ffe9a8; stroke:#ff4f79}
+.ft .f-em{text-anchor:middle; dominant-baseline:central; pointer-events:none}
+.ft .f-glow{display:none; fill:none; stroke:#ff4f79; stroke-linecap:round; stroke-linejoin:round; stroke-opacity:.55}
+.ft circle.f-glow{fill:rgba(255,79,121,.15)}
+.ft.glow .f-glow{display:inline; animation:glow 1s infinite alternate}
+.f-label{font-family:var(--f-display); font-weight:800; fill:var(--ink); paint-order:stroke; stroke:#fff; stroke-width:5px; stroke-linejoin:round; pointer-events:none}
+.tap-x{font-family:var(--f-display); font-weight:800; fill:var(--hibiscus); text-anchor:middle; dominant-baseline:central; pointer-events:none; animation:fadeX 1s forwards}
+@keyframes fadeX{0%{opacity:1} 70%{opacity:1} 100%{opacity:0}}
+.map-wrap.tapmode{cursor:crosshair}
+.ffact{margin:10px 0 0; font-size:1.2em; background:#fff3c4; border-radius:16px; padding:12px 16px; max-width:36ch; text-align:center; line-height:1.35}
+.rep-sec{font-family:var(--f-display); font-weight:700; color:var(--ink-soft)}
+.modal .panel.wide{width:min(1000px,100%)}
+.scard .t div{min-width:0} .scard .t b{overflow-wrap:anywhere; display:block}
+
+.num-grid.five{grid-template-columns:repeat(5,minmax(0,1fr)); max-width:720px}
+.count-box{margin-top:18px; display:grid; gap:8px; max-width:520px}
+.count-box label{font-family:var(--f-display); font-weight:700; font-size:1.15em}
+.count-row{display:flex; gap:12px; align-items:center}
+.count-row input{width:6em; font-size:1.6em; font-family:var(--f-display); font-weight:800; text-align:center; padding:.2em .4em; border-radius:16px; border:3px solid #e4ddc8; background:var(--card)}
+.count-err{margin:0; color:var(--hibiscus); font-weight:700}
+.kd-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:12px 0 0; width:min(560px,100%); text-align:left}
+.kd-list div{background:#fff3c4; border-radius:14px; padding:8px 12px}
+.kd-list dt{font-family:var(--f-display); font-weight:700; color:var(--ink-soft); font-size:.85em}
+.kd-list dd{margin:0; font-family:var(--f-display); font-weight:800; font-size:1.2em; line-height:1.15}
+@media (max-width:560px){ .kd-list{grid-template-columns:1fr} .num-grid.five .num-btn{font-size:1.8rem} }
+.name-list{grid-template-columns:minmax(0,1fr)} .name-row input{width:100%}

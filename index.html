@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gaju's India Puzzle</title>
+<meta name="description" content="A map puzzle game for children. Drag states, districts, continents and countries onto the map and learn with Gaju the elephant.">
+<meta name="theme-color" content="#8fd3f4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%98%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Andika:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/01-base.css">
+<link rel="stylesheet" href="css/02-components.css">
+<link rel="stylesheet" href="css/03-home.css">
+<link rel="stylesheet" href="css/04-setup.css">
+<link rel="stylesheet" href="css/05-game.css">
+<link rel="stylesheet" href="css/06-modal-tutorial.css">
+<link rel="stylesheet" href="css/07-turn-report.css">
+<link rel="stylesheet" href="css/08-motion-responsive.css">
+<link rel="stylesheet" href="css/09-features-study.css">
+<link rel="stylesheet" href="css/10-welcome.css">
+<link rel="stylesheet" href="css/11-setup-steps.css">
+<link rel="stylesheet" href="css/12-rewards.css">
+<link rel="stylesheet" href="css/13-home-scaling.css">
+<link rel="stylesheet" href="css/14-compact.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="gaju" viewBox="0 0 130 120">
+      <ellipse cx="72" cy="86" rx="40" ry="26" fill="#9fb2db"/>
+      <rect x="44" y="92" width="16" height="24" rx="7" fill="#8ea2cf"/>
+      <rect x="84" y="92" width="16" height="24" rx="7" fill="#8ea2cf"/>
+      <path d="M111 80 q12 -4 10 8" stroke="#8ea2cf" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="46" cy="52" rx="26" ry="29" fill="#ffb3cc" stroke="#9fb2db" stroke-width="7"/>
+      <circle cx="66" cy="50" r="30" fill="#b3c3e8"/>
+      <path d="M86 58 C106 64 108 86 99 97 C94 103 86 100 89 93 C95 82 92 72 78 70 Z" fill="#b3c3e8"/>
+      <circle cx="73" cy="44" r="6" fill="#2a2463"/><circle cx="75.5" cy="41.5" r="2.2" fill="#fff"/>
+      <circle cx="80" cy="58" r="5.5" fill="#ff8fb1" opacity=".75"/>
+      <path d="M64 63 q6 5 12 1" stroke="#2a2463" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M42 26 Q66 -2 90 24 Z" fill="#ffb627"/><path d="M42 26 Q66 18 90 24" stroke="#ff4f79" stroke-width="4" fill="none"/>
+      <circle cx="66" cy="8" r="6" fill="#ff4f79"/>
+    </symbol>
+    <pattern id="waves" width="60" height="30" patternUnits="userSpaceOnUse">
+      <path d="M0 15 q15 -10 30 0 t30 0" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="2"/>
+    </pattern>
+  </defs>
+</svg>
+
+<div id="app">
+  <!-- HOME -->
+  <section class="screen" id="scr-home">
+    <div class="sky" aria-hidden="true">
+      <span class="sun"></span>
+      <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+      <svg class="hills" viewBox="0 0 1200 170" preserveAspectRatio="none">
+        <path d="M0,120 C150,60 300,70 450,110 C600,150 750,60 900,80 C1050,100 1120,70 1200,90 L1200,170 L0,170Z" fill="#8fd17a"/>
+        <path d="M0,140 C200,100 380,130 560,140 C760,150 900,110 1200,130 L1200,170 L0,170Z" fill="#5fb85a"/>
+      </svg>
+      <svg class="palm p1" viewBox="0 0 120 160"><path d="M58,160 q8,-60 2,-118 l7,0 q6,60 -1,118Z" fill="#7a4b28"/><g fill="#2f9e4f"><path d="M62,44 q-36,-14 -60,12 q30,-8 60,-12Z"/><path d="M62,44 q36,-18 58,8 q-30,-8 -58,-8Z"/><path d="M62,44 q-12,-32 -44,-38 q24,12 44,38Z"/><path d="M62,44 q14,-32 46,-34 q-26,12 -46,34Z"/><path d="M62,44 q-2,-30 6,-44 q4,20 -6,44Z"/></g></svg>
+      <svg class="palm p2" viewBox="0 0 120 160"><path d="M58,160 q8,-60 2,-118 l7,0 q6,60 -1,118Z" fill="#7a4b28"/><g fill="#2f9e4f"><path d="M62,44 q-36,-14 -60,12 q30,-8 60,-12Z"/><path d="M62,44 q36,-18 58,8 q-30,-8 -58,-8Z"/><path d="M62,44 q-12,-32 -44,-38 q24,12 44,38Z"/><path d="M62,44 q14,-32 46,-34 q-26,12 -46,34Z"/><path d="M62,44 q-2,-30 6,-44 q4,20 -6,44Z"/></g></svg>
+      <svg class="palm p3" viewBox="0 0 120 160"><path d="M58,160 q8,-60 2,-118 l7,0 q6,60 -1,118Z" fill="#7a4b28"/><g fill="#2f9e4f"><path d="M62,44 q-36,-14 -60,12 q30,-8 60,-12Z"/><path d="M62,44 q36,-18 58,8 q-30,-8 -58,-8Z"/><path d="M62,44 q-12,-32 -44,-38 q24,12 44,38Z"/><path d="M62,44 q14,-32 46,-34 q-26,12 -46,34Z"/><path d="M62,44 q-2,-30 6,-44 q4,20 -6,44Z"/></g></svg>
+    </div>
+    <div class="home-scroll"><div class="home-inner">
+      <div class="welcome">
+        <div class="gaju-big"><svg viewBox="0 0 130 120" aria-label="Gaju the elephant"><use href="#gaju"/></svg></div>
+        <div class="welcome-txt">
+          <div class="speech" id="hello">Namaste! I am Gaju. Let's explore India!</div>
+          <h1>Gaju's <span class="hl">India</span> Puzzle</h1>
+        </div>
+      </div>
+      <h2 class="pick">Pick a map quest</h2>
+      <div class="quests">
+        <button class="quest" data-play="states" style="--c:#ff4f79;--bg:#ffe3ea"><svg class="qmap" id="qm-states" aria-hidden="true"></svg><b>States and Territories</b><small>36 pieces · 4 levels</small></button>
+        <button class="quest" data-play="igeo" style="--c:#3d9fd3;--bg:#e0f2ff"><svg class="qmap" id="qm-igeo" aria-hidden="true"></svg><b>Mountains and Rivers</b><small>20 places in India</small></button>
+        <button class="quest" data-play="kdist" style="--c:#1fae6c;--bg:#e0f7ea"><svg class="qmap" id="qm-kdist" aria-hidden="true"></svg><b>Kerala Districts</b><small>14 pieces</small></button>
+        <button class="quest" data-play="kplace" style="--c:#e08a00;--bg:#fff1d6"><svg class="qmap" id="qm-kplace" aria-hidden="true"></svg><b>Kerala Places</b><small>26 places in Kerala</small></button>
+        <button class="quest" data-play="wcont" style="--c:#7c6cf2;--bg:#efecff"><svg class="qmap" id="qm-wcont" aria-hidden="true"></svg><b>Continents</b><small>7 pieces</small></button>
+        <button class="quest" data-play="wsea" style="--c:#2ea89a;--bg:#ddf6f2"><svg class="qmap" id="qm-wsea" aria-hidden="true"></svg><b>Oceans and Straits</b><small>5 oceans · 4 straits</small></button>
+        <button class="quest" data-play="wcountry" style="--c:#ff8a3d;--bg:#ffeadb"><svg class="qmap" id="qm-wcountry" aria-hidden="true"></svg><b>Major Countries</b><small>25 pieces</small></button>
+      </div>
+      <div class="tools">
+        <button class="tool" id="btnStudy"><span>📖</span>Study board</button>
+        <button class="tool" id="btnReport"><span>📊</span>Progress report</button>
+        <button class="tool" id="btnNew"><span>✨</span>Start new session</button>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- SETUP (one page for each step) -->
+  <section class="screen" id="scr-setup" hidden>
+    <div class="center-wrap">
+      <div class="panel setup">
+        <div class="page-nav"><button class="btn white small" id="setupBack">← Back</button><span class="quest-tag" id="questTag"></span><button class="btn white small" data-go="home">🏠 Home</button></div>
+        <div id="stepCount">
+          <h2>How many children are playing?</h2>
+          <div class="num-grid five" id="numGrid"></div>
+          <div class="count-box"><label for="kidCount">Or type a number (1 to 10):</label>
+            <div class="count-row"><input id="kidCount" type="number" inputmode="numeric" min="1" max="10" placeholder="6"><button class="btn green small" id="kidCountGo">OK →</button></div>
+            <p class="count-err" id="kidCountErr" hidden>Type a number from 1 to 10.</p></div>
+        </div>
+        <div id="stepNames" hidden>
+          <h2>Type each name</h2>
+          <div class="name-list" id="nameList"></div>
+          <div id="savedWrap" hidden><h3>Saved players (tap to add)</h3><div class="saved" id="saved"></div></div>
+          <div class="step-actions end"><button class="btn green" id="namesNext">Next →</button></div>
+        </div>
+        <div id="stepLevel" hidden>
+          <h2>Pick your level</h2>
+          <div class="lvl-grid" id="levelGrid"></div>
+        </div>
+        <div id="stepMode" hidden>
+          <h2>Pick a mode</h2>
+          <div class="mode-grid" id="modeGrid">
+            <button class="mode-card" data-mode="learning" aria-pressed="true"><span class="em">🌱</span><b>Learning</b><small id="learnDesc"></small></button>
+            <button class="mode-card" data-mode="competition" aria-pressed="false"><span class="em">🏆</span><b>Competition</b><small id="compDesc"></small></button>
+          </div>
+          <div id="timerWrap" hidden style="margin-top:16px"><button class="toggle" id="timerToggle" aria-pressed="true"><span class="switch"></span>Timer on</button></div>
+          <div class="step-actions end"><button class="btn pink" id="startRound">Next →</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TURN INTRO / PIECES QUESTION -->
+  <section class="screen" id="scr-turn" hidden>
+    <div class="center-wrap"><div class="panel turn" id="turnBox"></div></div>
+  </section>
+
+  <!-- GAME -->
+  <section class="screen" id="scr-game" hidden>
+    <div class="hud">
+      <button class="icon-btn" id="btnBack" aria-label="Back">⬅️</button>
+      <div class="who"><span class="av" id="hudAv"></span><b id="hudName"></b></div>
+      <span class="pill" id="hudLevel"></span>
+      <span class="pill timer" id="hudTimer" hidden>0:00</span>
+      <span class="pill pts" id="hudPts">0 points · ⭐ 0</span>
+      <div class="progress"><i id="hudBar"></i><span id="hudCount"></span></div>
+      <button class="icon-btn" id="btnHelp" aria-label="How to play">❓</button>
+      <button class="icon-btn mute-btn" aria-label="Mute or unmute the voice">🔊</button>
+      <button class="icon-btn" id="btnExit" aria-label="Stop the game">🏠</button>
+    </div>
+    <div class="board">
+      <div class="map-wrap" id="mapWrap">
+        <svg id="map" aria-label="Map"></svg>
+        <div class="buddy"><svg viewBox="0 0 130 120"><use href="#gaju"/></svg><div class="bubble" id="bubble">Drag a piece to the map!</div></div>
+      </div>
+      <div class="tray">
+        <h3 id="trayTitle">Drag a piece to the map</h3>
+        <div class="pieces" id="pieces"></div>
+        <div class="left" id="trayLeft"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="scr-end" hidden>
+    <div class="center-wrap"><div class="panel turn" id="endBox"></div></div>
+  </section>
+  <section class="screen" id="scr-results" hidden>
+    <div class="center-wrap"><div class="panel turn" id="resultsBox"></div></div>
+  </section>
+  <section class="screen" id="scr-report" hidden>
+    <div class="center-wrap"><div class="panel report" id="reportBox"></div></div>
+  </section>
+  <section class="screen" id="scr-study" hidden>
+    <div class="center-wrap"><div class="panel wide report" id="studyBox"></div></div>
+  </section>
+</div>
+
+<div class="modal" id="modal" hidden><div class="panel" id="modalBox"></div></div>
+<canvas id="confetti" hidden></canvas>
+<div id="fxLayer" hidden></div>
+<button class="mute-fab mute-btn" id="muteFab" aria-label="Mute or unmute the voice">🔊</button>
+
+<noscript>This game needs JavaScript. Please turn it on and reload.</noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

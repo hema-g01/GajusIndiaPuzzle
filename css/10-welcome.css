@@ -1,0 +1,38 @@
+/* Welcome screen: sky, hills, palms, quest buttons. Files load in numeric order: later rules override earlier ones. */
+/* ---- v5: welcome screen ---- */
+#scr-home{position:relative}
+.sky{position:fixed; inset:0; z-index:0; overflow:hidden; background:linear-gradient(180deg,#7fd0ff 0%,#bfe9ff 55%,#e8f8ff 100%)}
+.sun{position:absolute; right:7%; top:6%; width:clamp(60px,9vw,120px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,#fff6b0 0 45%,#ffd34d 46% 70%,rgba(255,211,77,0) 71%); animation:sunPulse 4s ease-in-out infinite}
+@keyframes sunPulse{50%{transform:scale(1.08)}}
+.cloud{position:absolute; width:140px; height:44px; background:#fff; border-radius:44px; opacity:.9; animation:drift linear infinite}
+.cloud::before,.cloud::after{content:""; position:absolute; background:#fff; border-radius:50%}
+.cloud::before{width:62px; height:62px; left:20px; top:-30px}
+.cloud::after{width:48px; height:48px; left:70px; top:-20px}
+.cloud.c1{top:12%; animation-duration:60s; animation-delay:-10s}
+.cloud.c2{top:28%; transform:scale(.7); animation-duration:80s; animation-delay:-45s}
+.cloud.c3{top:5%; transform:scale(.55); animation-duration:95s; animation-delay:-70s}
+@keyframes drift{from{left:-180px} to{left:110%}}
+.hills{position:absolute; left:0; right:0; bottom:0; width:100%; height:clamp(90px,16vh,170px)}
+.home-scroll{position:relative; z-index:1; flex:1; min-height:0; overflow:auto; display:flex; flex-direction:column; align-items:center; gap:clamp(10px,2vh,20px); padding-block:clamp(8px,2vh,24px) clamp(60px,12vh,120px)}
+.welcome{display:flex; align-items:center; justify-content:center; gap:clamp(8px,2vw,24px); width:min(1000px,100%)}
+.gaju-big{width:clamp(110px,15vw,190px); flex:none; animation:wave 2.4s ease-in-out infinite; transform-origin:50% 90%; filter:drop-shadow(0 8px 8px rgba(42,36,99,.2))}
+.gaju-big svg{width:100%; display:block}
+@keyframes wave{0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg) translateY(-6px)}}
+.welcome-txt{display:grid; gap:8px; min-width:0}
+.speech{position:relative; background:var(--card); border-radius:22px; padding:10px 18px; font-family:var(--f-display); font-weight:700; font-size:clamp(1.05rem,1.8vw,1.5rem); box-shadow:0 6px 0 #c7c3e8; justify-self:start}
+.speech::before{content:""; position:absolute; left:-14px; top:50%; margin-top:-10px; border:10px solid transparent; border-right:16px solid var(--card); border-left:0}
+.welcome h1{font-size:clamp(2.2rem,5vw,4.4rem); font-weight:800; color:var(--ink); text-shadow:0 3px 0 #fff}
+.welcome h1 .hl{color:var(--hibiscus)}
+.pick{font-size:clamp(1.4rem,2.6vw,2.1rem); color:var(--ink); text-shadow:0 2px 0 #fff}
+.quests{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(12px,2vw,22px); width:min(1000px,100%)}
+.quest{background:var(--bg); border:5px solid var(--c); border-radius:28px; padding:12px 16px 14px; display:grid; grid-template-columns:minmax(0,1fr); justify-items:center; align-content:start; gap:4px; text-align:center; box-shadow:0 8px 0 var(--c); transition:transform .15s}
+.quest:hover{transform:translateY(-4px) rotate(-.5deg)}
+.quest:active{transform:translateY(5px); box-shadow:0 3px 0 var(--c)}
+.qmap{width:100%; height:clamp(90px,17vh,170px); display:block}
+.quest b{font-family:var(--f-display); font-size:clamp(1.2rem,2vw,1.7rem); line-height:1.05; color:var(--ink)}
+.quest small{color:var(--ink-soft); font-weight:700}
+.tools{display:flex; flex-wrap:wrap; justify-content:center; gap:clamp(14px,3vw,36px); margin-top:4px}
+.tool{display:grid; justify-items:center; gap:6px; font-family:var(--f-display); font-weight:700; font-size:1em; color:var(--ink); width:clamp(96px,12vw,130px)}
+.tool span{width:clamp(62px,7vw,80px); aspect-ratio:1; border-radius:50%; background:var(--card); display:grid; place-items:center; font-size:clamp(1.8rem,3vw,2.4rem); box-shadow:0 6px 0 #c7c3e8}
+.tool:active span{transform:translateY(4px); box-shadow:0 2px 0 #c7c3e8}
+@media (max-width:560px){ .quests{grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px} .quest{padding:8px 8px 10px; border-width:4px} .qmap{height:90px} .welcome{flex-direction:column} .speech::before{display:none} .speech{justify-self:center} .welcome-txt{text-align:center} }

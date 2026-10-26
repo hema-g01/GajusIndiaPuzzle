@@ -1,0 +1,18 @@
+/* Buttons and panels used on every screen. Files load in numeric order: later rules override earlier ones. */
+/* Chunky buttons */
+.btn{font-family:var(--f-display); font-weight:800; font-size:1.25em; padding:.45em 1.2em .35em; border-radius:999px;
+  background:var(--marigold); color:var(--ink); box-shadow:0 6px 0 #d48a00, 0 10px 18px var(--shade);
+  transition:transform .1s, box-shadow .1s; min-height:56px}
+.btn:active{transform:translateY(5px); box-shadow:0 1px 0 #d48a00,0 4px 8px var(--shade)}
+.btn.pink{background:var(--hibiscus); color:#fff; box-shadow:0 6px 0 #c22a52,0 10px 18px var(--shade)}
+.btn.green{background:var(--leaf); color:#fff; box-shadow:0 6px 0 #11804d,0 10px 18px var(--shade)}
+.btn.white{background:var(--card); box-shadow:0 6px 0 #c7c3e8,0 10px 18px var(--shade)}
+.btn.small{font-size:1em; min-height:46px; padding:.35em .9em .25em}
+.btn[disabled]{opacity:.45; pointer-events:none}
+.icon-btn{width:52px; height:52px; border-radius:50%; background:var(--card); box-shadow:0 4px 0 #c7c3e8; font-size:1.5rem; display:grid; place-items:center; flex:none}
+.icon-btn:active{transform:translateY(3px); box-shadow:0 1px 0 #c7c3e8}
+
+/* Panels */
+.panel{background:var(--panel); border-radius:var(--r-l); box-shadow:0 10px 30px var(--shade); padding:clamp(16px,2.5vw,36px)}
+.center-wrap{flex:1; min-height:0; overflow:auto; display:flex; align-items:flex-start; justify-content:center; padding-block:8px 24px}
+.center-wrap > .panel{width:min(980px,100%); margin:auto 0}

@@ -1,0 +1,57 @@
+/* Game screen: HUD, map, tray, mascot bubble, dragged piece. Files load in numeric order: later rules override earlier ones. */
+/* Game */
+.hud{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:8px}
+.who{display:flex; align-items:center; gap:10px; background:var(--card); border-radius:999px; padding:4px 16px 4px 6px; box-shadow:0 4px 0 #c7c3e8; min-width:0}
+.who .av{font-size:1.8em; width:46px; height:46px; display:grid; place-items:center; border-radius:50%; background:var(--foam)}
+.who b{font-family:var(--f-display); font-size:1.3em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:12ch}
+.pill{font-family:var(--f-display); font-weight:700; background:var(--card); border-radius:999px; padding:.25em .9em; box-shadow:0 4px 0 #c7c3e8; white-space:nowrap}
+.pill.timer{font-variant-numeric:tabular-nums; background:var(--ink); color:#fff; box-shadow:0 4px 0 #15104a}
+.progress{flex:1; min-width:120px; height:22px; background:rgba(255,255,255,.55); border-radius:999px; overflow:hidden; position:relative}
+.progress i{position:absolute; inset:0 auto 0 0; width:0; background:linear-gradient(90deg,var(--leaf),#7be0a5); border-radius:999px; transition:width .4s}
+.progress span{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--f-display); font-weight:800; font-size:.85em}
+.hud .spacer{flex:1}
+.board{flex:1; min-height:0; display:flex; gap:14px}
+.map-wrap{flex:1; min-width:0; min-height:0; position:relative; background:linear-gradient(180deg,#a5ddf7,#7fc9ef); border-radius:var(--r-l); box-shadow:inset 0 0 0 6px rgba(255,255,255,.5); overflow:hidden; touch-action:none}
+#map{width:100%; height:100%; display:block}
+.tray{width:clamp(230px,24vw,380px); background:var(--panel); border-radius:var(--r-l); padding:12px; display:flex; flex-direction:column; gap:10px; box-shadow:0 10px 30px var(--shade)}
+.tray h3{font-size:1.1em; text-align:center; color:var(--ink-soft)}
+.pieces{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; flex:1; min-height:0; align-content:start}
+.piece{background:var(--card); border-radius:var(--r-m); box-shadow:0 5px 0 #e4ddc8; padding:8px 6px 6px; display:flex; flex-direction:column; align-items:center; gap:2px; touch-action:none; cursor:grab; min-height:0; animation:popIn .35s both}
+.piece svg{width:100%; height:clamp(52px,9vh,110px); overflow:hidden; pointer-events:none}
+.piece span{font-family:var(--f-display); font-weight:700; font-size:.95em; line-height:1.05; text-align:center; pointer-events:none}
+.piece.lifted{opacity:.25}
+.piece.shake{animation:shake .45s}
+.tray .left{font-family:var(--f-display); text-align:center; color:var(--ink-soft); font-size:.95em}
+@media (max-aspect-ratio:1/1){
+  .board{flex-direction:column}
+  .tray{width:auto; padding:8px}
+  .tray h3{display:none}
+  .pieces{grid-template-columns:repeat(6,minmax(0,1fr)); gap:6px; flex:none}
+  .piece svg{height:clamp(40px,7vh,90px)}
+  .piece span{font-size:.7em}
+}
+@media (max-width:560px) and (max-aspect-ratio:1/1){ .pieces{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* map states */
+.st{transition:fill .35s, fill-opacity .35s}
+.st.todo{fill:transparent}
+.st.todo.lines{stroke:var(--land-edge); stroke-width:1.6; stroke-dasharray:5 4}
+.st.pre{fill-opacity:.38; stroke:#fff; stroke-width:1}
+.st.done{stroke:#fff; stroke-width:1.6}
+.st.glow{stroke:var(--hibiscus)!important; stroke-width:4!important; stroke-dasharray:none!important; fill:rgba(255,79,121,.18)!important; animation:glow 1s infinite alternate}
+.tiny-ring{fill:none; stroke:var(--land-edge); stroke-width:1.6; stroke-dasharray:4 3}
+.tiny-ring.done{stroke:#fff; stroke-dasharray:none; stroke-width:2}
+.lbl{font-size:20px; text-anchor:middle; dominant-baseline:central; pointer-events:none; animation:labelPop .5s both}
+.spark{pointer-events:none; animation:spark .9s ease-out forwards}
+
+/* mascot bubble */
+.buddy{position:absolute; right:8px; top:8px; display:flex; flex-direction:row-reverse; align-items:flex-start; gap:4px; max-width:min(250px,50%); pointer-events:none; z-index:3}
+.buddy svg{width:clamp(40px,4.2vw,58px); flex:none; filter:drop-shadow(0 3px 3px var(--shade))}
+.bubble{background:var(--card); border-radius:16px 4px 16px 16px; padding:6px 10px; font-size:.82em; line-height:1.25; box-shadow:0 4px 12px var(--shade); margin-top:8px; transition:opacity .4s, transform .4s; transform-origin:top right}
+.bubble.hide{opacity:0; transform:scale(.85)}
+.bubble.pop{animation:popIn .3s}
+
+/* floating dragged piece */
+.floater{position:fixed; left:0; top:0; pointer-events:none; z-index:50; filter:drop-shadow(0 10px 10px rgba(0,0,0,.25)); transform-origin:0 0}
+.floater.back{transition:left .35s ease, top .35s ease, opacity .35s}
+.floater.snap{transition:left .22s ease-out, top .22s ease-out, opacity .3s .15s}

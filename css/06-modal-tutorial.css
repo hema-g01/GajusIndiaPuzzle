@@ -1,0 +1,40 @@
+/* Modal dialog, quiz options, tutorial demo. Files load in numeric order: later rules override earlier ones. */
+/* Modals */
+.modal{position:fixed; inset:0; z-index:40; background:rgba(42,36,99,.45); display:grid; place-items:center; padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px)); overflow:auto}
+.modal .panel{width:min(720px,100%); animation:popIn .3s both}
+.q-head{display:flex; align-items:center; gap:14px; margin-bottom:10px}
+.q-head .em{font-size:3em; line-height:1}
+.q-head .step{font-family:var(--f-display); font-weight:700; color:var(--ink-soft); font-size:.9em}
+.q-text{font-size:clamp(1.5rem,2.6vw,2.2rem); margin:.2em 0 .7em}
+.opts{display:grid; gap:12px}
+.opt{font-family:var(--f-display); font-weight:700; font-size:1.3em; text-align:left; background:var(--card); border:4px solid #e4ddc8; border-radius:var(--r-m); padding:.5em .8em .4em; display:flex; gap:12px; align-items:center; min-height:64px}
+.opt .k{flex:none; width:44px; height:44px; border-radius:50%; display:grid; place-items:center; color:#fff; font-size:.9em}
+.opt:nth-child(1) .k{background:var(--hibiscus)} .opt:nth-child(2) .k{background:var(--leaf)} .opt:nth-child(3) .k{background:var(--plum)} .opt:nth-child(4) .k{background:#e08a00}
+.opt.right{border-color:var(--leaf); background:#e3f8ec}
+.opt.wrong{border-color:var(--hibiscus); background:#ffe6ec; opacity:.7; animation:shake .45s}
+.opt.hint{animation:pulse 1s infinite}
+.fact{display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px 20px; align-items:center}
+.fact .big{font-size:clamp(4rem,9vw,7rem); line-height:1}
+.fact h2{font-size:clamp(1.8rem,3.2vw,2.8rem)}
+.fact .type{display:inline-block; font-family:var(--f-display); font-weight:700; color:#fff; background:var(--plum); border-radius:999px; padding:0 .7em; font-size:.85em; margin-top:4px}
+.rows{grid-column:1/-1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}
+.rows div{background:var(--card); border-radius:14px; padding:8px 12px; box-shadow:0 3px 0 #e4ddc8}
+.rows dt{font-family:var(--f-display); font-weight:700; color:var(--ink-soft); font-size:.85em}
+.rows dd{margin:0; font-weight:700}
+.fact p{grid-column:1/-1; margin:0; font-size:1.1em; background:#fff3c4; border-radius:14px; padding:10px 14px}
+.modal-actions{display:flex; justify-content:flex-end; gap:12px; margin-top:20px; flex-wrap:wrap}
+
+/* Tutorial */
+.tut{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:center}
+.tut-demo{background:linear-gradient(180deg,#a5ddf7,#7fc9ef); border-radius:var(--r-m); aspect-ratio:1/1; position:relative; overflow:hidden}
+.tut-demo svg{width:100%; height:100%}
+.tut h2{font-size:clamp(1.6rem,3vw,2.5rem); margin-bottom:.3em}
+.tut ol{margin:0; padding-left:1.3em; display:grid; gap:.5em; font-size:1.1em}
+.tut-step{display:flex; gap:10px; align-items:flex-start}
+.dots{display:flex; gap:8px; margin-top:14px}
+.dots i{width:12px; height:12px; border-radius:50%; background:#d7d3ea}
+.dots i.on{background:var(--hibiscus)}
+@keyframes demoMove{0%,12%{transform:translate(var(--dx),var(--dy))} 55%,85%{transform:translate(0,0)} 100%{transform:translate(0,0)}}
+@keyframes demoFill{0%,55%{fill:#fff;fill-opacity:.9} 60%,100%{fill:#3FA7F5;fill-opacity:1}}
+.demo-piece{animation:demoMove 3.2s ease-in-out infinite}
+.demo-piece path{animation:demoFill 3.2s infinite}

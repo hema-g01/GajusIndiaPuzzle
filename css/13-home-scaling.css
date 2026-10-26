@@ -1,0 +1,35 @@
+/* Front page scales with the screen size. Files load in numeric order: later rules override earlier ones. */
+/* ---- v7: front page scales with the screen ---- */
+.home-scroll{display:block; padding-block:0; font-size:clamp(13px, min(1.15vw, 1.72vh), 34px)}
+.home-inner{min-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.1em; padding-block:1.2em 2.4em}
+.welcome{width:min(58em,100%); gap:1.4em}
+.gaju-big{width:8em}
+.speech{font-size:1.35em; padding:.45em 1em}
+.welcome h1{font-size:3.4em}
+.pick{font-size:1.75em}
+.quests{width:min(58em,100%); gap:1.2em}
+.quest{border-radius:1.6em; padding:.8em 1em .9em}
+.qmap{height:7.6em}
+.quest b{font-size:1.5em}
+.quest small{font-size:1em}
+.tools{gap:2.2em; margin-top:.2em}
+.tool{width:auto; font-size:1.05em; white-space:nowrap; gap:.35em}
+.tool span{width:3.6em; font-size:1.05em; box-sizing:border-box}
+.tool span{font-size:2em; width:1.9em}
+.hills{height:clamp(70px,15vh,260px)}
+.palm{position:absolute; bottom:clamp(20px,5vh,90px); height:clamp(90px,19vh,320px); width:auto}
+.palm.p1{left:4%} .palm.p2{right:5%} .palm.p3{right:13%; height:clamp(70px,14vh,240px); bottom:clamp(14px,3.5vh,60px)}
+@media (max-width:560px){
+  .home-scroll{font-size:14px}
+  .welcome{flex-direction:column; gap:.4em} .gaju-big{width:7em}
+  .welcome h1{font-size:2.3em} .speech{font-size:1.1em}
+  .quests{gap:.7em} .qmap{height:6.2em} .quest b{font-size:1.2em} .quest small{font-size:.85em}
+  .tools{gap:1em} .tool{white-space:normal; text-align:center; width:6.5em}
+  .palm.p3{display:none}
+}
+@media (max-height:500px) and (orientation:landscape){
+  .home-scroll{font-size:12px}
+  .welcome{flex-direction:row} .gaju-big{width:5.5em} .welcome h1{font-size:2.4em}
+  .quests{grid-template-columns:repeat(4,minmax(0,1fr)); width:min(70em,100%)} .qmap{height:6em}
+  .palm{display:none}
+}

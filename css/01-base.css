@@ -1,0 +1,31 @@
+/* Design tokens, page reset, typography, shared layout. Files load in numeric order: later rules override earlier ones. */
+/* Layout: one-screen game. Sea-blue world, map is the stage, puzzle tray beside it (below on tall screens). Single bright theme by choice. */
+:root{
+  --sea:#8fd3f4; --sea-deep:#3d9fd3; --foam:#e4f6ff;
+  --land:#fff3d3; --land-edge:#c99a4c;
+  --ink:#2a2463; --ink-soft:#5d5896;
+  --marigold:#ffb627; --hibiscus:#ff4f79; --leaf:#1fae6c; --plum:#7c6cf2;
+  --card:#ffffff; --panel:#fffaf0; --shade:rgba(42,36,99,.16);
+  --f-display:"Baloo 2","Trebuchet MS","Comic Sans MS",system-ui,sans-serif;
+  --f-body:"Andika","Verdana",system-ui,sans-serif;
+  --r-l:26px; --r-m:18px;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{
+  background:var(--sea);
+  background-image:radial-gradient(circle at 20% 15%,rgba(255,255,255,.35) 0 8%,transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(255,255,255,.25) 0 6%,transparent 28%);
+  color:var(--ink); font-family:var(--f-body); font-size:clamp(16px,1.15vw + 10px,22px);
+  overscroll-behavior:none; -webkit-user-select:none; user-select:none;
+  padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0; box-sizing:border-box; overflow:hidden;
+}
+*,*::before,*::after{box-sizing:border-box}
+#app{height:100%; display:flex; flex-direction:column; max-width:1700px; margin:0 auto; padding-block:10px}
+.screen{flex:1; min-height:0; display:flex; flex-direction:column}
+h1,h2,h3{font-family:var(--f-display); margin:0; line-height:1.05; text-wrap:balance}
+button{font:inherit; color:inherit; cursor:pointer; border:0; background:none; touch-action:manipulation}
+button:focus-visible,input:focus-visible{outline:4px solid var(--plum); outline-offset:3px}
+input{font:inherit; color:var(--ink)}

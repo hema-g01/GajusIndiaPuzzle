@@ -1,0 +1,12 @@
+/* First version of the welcome screen (later refined in 10 and 13). Files load in numeric order: later rules override earlier ones. */
+/* Home */
+.home{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:clamp(16px,3vw,48px); align-items:center}
+.home h1{font-size:clamp(2.6rem,5.5vw,5.2rem); font-weight:800; color:var(--ink)}
+.home h1 .hl{color:var(--hibiscus)}
+.home p.lead{font-size:1.15em; color:var(--ink-soft); margin:.6em 0 1.2em; max-width:34ch}
+.home .actions{display:flex; flex-wrap:wrap; gap:16px}
+.home-art{position:relative; aspect-ratio:1/1.05; max-width:100%}
+.home-art svg.mini{width:100%; height:100%}
+.home-art .mascot{position:absolute; left:-4%; bottom:2%; width:42%}
+.badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.badge{font-family:var(--f-display); font-weight:700; background:var(--card); border-radius:999px; padding:.15em .8em; font-size:.9em; box-shadow:0 3px 0 #e4ddc8}

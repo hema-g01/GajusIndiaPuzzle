@@ -1,0 +1,40 @@
+/* Compact phone and short landscape layouts. Files load in numeric order: later rules override earlier ones. */
+/* ---- v7: compact phone layout ---- */
+.piece{min-width:0} .piece span{overflow-wrap:anywhere}
+@media (max-width:560px){
+  .hud{gap:5px; padding-bottom:6px}
+  .hud .icon-btn{width:40px; height:40px; font-size:1.05rem; box-shadow:0 3px 0 #c7c3e8}
+  .who{padding:2px; box-shadow:0 3px 0 #c7c3e8} .who b{display:none} .who .av{width:36px; height:36px; font-size:1.3em}
+  #hudLevel{display:none}
+  .hud .pill{font-size:.78em; padding:.3em .7em; box-shadow:0 3px 0 #c7c3e8}
+  .hud .pill.pts{box-shadow:0 3px 0 #f0d98a}
+  .progress{min-width:60px; height:18px} .progress span{font-size:.72em}
+  .find-card{display:flex; align-items:center; gap:8px; padding:8px 10px; text-align:left}
+  .find-card .lbl2{font-size:.85em} .find-card .em{font-size:1.9em}
+  .find-card > div{flex:1; min-width:0} .find-card b{font-size:1.15em}
+  .find-card .btn{font-size:.85em; min-height:40px; padding:.3em .7em}
+  .tray .left{font-size:.8em}
+}
+@media (max-height:500px) and (orientation:landscape){
+  .hud{gap:5px; padding-bottom:5px; flex-wrap:nowrap}
+  .hud .icon-btn{width:36px; height:36px; font-size:1rem; box-shadow:0 3px 0 #c7c3e8}
+  .who{padding:2px; box-shadow:0 3px 0 #c7c3e8} .who b{display:none} .who .av{width:32px; height:32px; font-size:1.2em}
+  #hudLevel{display:none}
+  .hud .pill{font-size:.72em; padding:.25em .6em}
+  .progress{min-width:50px; height:16px} .progress span{font-size:.7em}
+  #app{padding-block:4px}
+  .board{gap:8px}
+  .tray{width:36vw; padding:6px; gap:4px} .tray h3{font-size:.8em}
+  .pieces{grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; overflow:auto}
+  .piece{padding:4px} .piece svg{height:40px} .piece span{font-size:.68em}
+  .pieces.cards{grid-template-columns:1fr} .piece.fc{padding:4px 8px} .piece.fc .em{font-size:1.2em}
+  .find-card{display:flex; align-items:center; gap:6px; padding:6px 8px; text-align:left}
+  .find-card .em{font-size:1.6em} .find-card b{font-size:1em} .find-card .btn{font-size:.8em; min-height:36px; padding:.25em .6em}
+  .tray .left{font-size:.75em}
+  .buddy svg{width:36px} .bubble{font-size:.72em}
+  .home-scroll{font-size:10px} .qmap{height:5.2em} .tools{margin-top:0}
+  .mute-fab{width:44px; height:44px; font-size:1.2rem}
+}
+.find-card{grid-column:1/-1}
+.find-card .tt{white-space:nowrap}
+@media (max-width:560px){ .palm{display:none} }
