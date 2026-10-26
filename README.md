@@ -20,12 +20,11 @@ Then open <http://localhost:8000>.
 
 ## Publish on GitHub Pages
 
-1. Push this folder to a GitHub repository (the folder that holds `index.html` must be the repo root).
-2. In the repository go to **Settings → Pages**.
-3. Under **Build and deployment** choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
-4. The game appears at `https://<user>.github.io/<repo>/` after a minute.
+Deployment is automatic: every push to `main` (including merged pull requests) runs `.github/workflows/pages.yml`, which runs the tests and then publishes `index.html`, `css/`, `js/` and `data/`. Failing tests stop the deploy.
 
-Every path in the project is relative, so it works from a sub-path like `/<repo>/` without changes. `.nojekyll` tells Pages to serve the files as they are.
+One-time setup: in the repository go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**. After that the game is live at `https://<user>.github.io/<repo>/` and progress shows under the **Actions** tab.
+
+Every path in the project is relative, so it works from a sub-path like `/<repo>/` without changes.
 
 ## Project layout
 
